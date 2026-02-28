@@ -34,9 +34,3 @@ app.post("/analyze", async (req, res) => {
 
 app.listen(process.env.PORT || 3001, () => console.log("Servidor corriendo"));
 ```
-
-Guarda y luego:
-```
-git add .
-git commit -m "fix puerto render"
-git push origin main
