@@ -23,7 +23,7 @@ export default function App() {
     setLoading(true);
     setResult(null);
     try {
-      const response = await fetch("http://localhost:3001/analyze", {
+      const response = await fetch("https://styleai-production.up.railway.app/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ imageBase64 }),
