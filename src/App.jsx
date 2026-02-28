@@ -52,19 +52,26 @@ export default function App() {
       </button>
 
       {result && (
-        <div style={{ animation: "fadeIn 0.5s ease" }}>
+        <div>
           <div style={{ background: "rgba(212,175,115,0.08)", border: "1px solid #333", borderRadius: "16px", padding: "20px", marginBottom: "16px" }}>
             <p style={{ color: "#d4af73", fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "10px" }}>Tu perfil de estilo</p>
             <p style={{ fontSize: "14px", lineHeight: "1.7", color: "#ccc" }}>{result.profile}</p>
           </div>
+
           {result.outfits && result.outfits.map((o, i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid #222", borderRadius: "16px", padding: "16px", marginBottom: "12px" }}>
               <p style={{ color: "#f5f0e8", fontSize: "16px", fontWeight: "600", marginBottom: "4px" }}>{o.name}</p>
               <p style={{ color: "#666", fontSize: "11px", marginBottom: "10px", textTransform: "uppercase", letterSpacing: "1px" }}>{o.occasion}</p>
               <p style={{ color: "#aaa", fontSize: "13px", marginBottom: "10px" }}>{o.items.join(" · ")}</p>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                {o.brands.map((b, j) => (
-                  <span key={j} style={{ fontSize: "10px", color: "#d4af73", border: "1px solid rgba(212,175,115,0.3)", padding: "3px 10px", borderRadius: "8px", letterSpacing: "1px" }}>{b}</span>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "10px" }}>
+                {o.items.map((item, j) => (
+                  <a key={j}
+                    href={`https://www.amazon.com/s?k=${encodeURIComponent(item)}&tag=outfit10a-20`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: "11px", color: "#0a0a0a", background: "#d4af73", padding: "5px 12px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+                    🛒 {item}
+                  </a>
                 ))}
               </div>
             </div>
